@@ -1,0 +1,87 @@
+/* ================================
+   Lab Three – CSS Grid Layout
+   Author: Syeda
+   Purpose: Recreate card layout using CSS Grid
+   ================================ */
+
+/* --- Base Reset / Typography --- */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* --- Card Section Wrapper ---
+   This container becomes a grid.
+   Desktop layout uses 3 equal columns.
+   gap = spacing between cards.
+---------------------------------- */
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* --- Individual Cards ---
+   Flexbox inside each card ensures:
+   - title stays at top
+   - text stays in middle
+   - link stays at bottom
+   - all cards become equal height
+---------------------------------- */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* --- Card Titles --- */
+.card h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+/* --- Card Text --- */
+.card p {
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+/* --- Card Links --- */
+.card a {
+  text-decoration: none;
+  color: #0077ff;
+  font-weight: bold;
+}
+
+/* ================================
+   BONUS: Mobile‑First Responsive Grid
+   ================================ */
+
+/* Mobile (default): 1 column */
+.card-section {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 600px) {
+  .card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 900px) {
+  .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
